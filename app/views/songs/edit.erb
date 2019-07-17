@@ -10,7 +10,7 @@ Editing <%=@song.name%>
 <label for="Name">Song Name</label>
 <input type="text" name="Name" value="<%=@song.name%>">
 
-<% Genre.all.each do |genre| %>
+<% Genre.all.map do |genre| %>
   <label><%= genre.name %></label>
   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" <%='checked' if @song.genres.include?(genre) %>>
 
