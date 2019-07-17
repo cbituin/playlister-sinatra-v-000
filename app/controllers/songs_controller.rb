@@ -34,8 +34,8 @@ class SongsController < ApplicationController
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    @artist = Artist.find(@song.artist_id)
-    @genres = @song.songs_genres
+    # @artist = Artist.find(@song.artist_id)
+    # @genres = @song.songs_genres
     erb :"/songs/edit"
   end
 
