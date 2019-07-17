@@ -40,6 +40,11 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
+    @artist = Artist.create(:name => params["Artist Name"]) unless Artist.where(name: params["Artist Name"]).exists?
+    @song.name = params["Name"]
+    @song.artist = @artist
+    @song.genre_ids = params[:genres]
+    @song.save
 
     redirect("/songs/#{@song.slug}")
   end
