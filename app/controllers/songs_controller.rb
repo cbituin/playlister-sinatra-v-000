@@ -21,7 +21,6 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-<<<<<<< HEAD
     @song = Song.create(:name => params["Name"])
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
 
@@ -38,18 +37,6 @@ class SongsController < ApplicationController
     @artist = Artist.find(@song.artist_id)
     @genres = @song.songs_genres
     erb :"/songs/edit"
-=======
-
-      @artist = Artist.create(:name => params["Artist Name"]) unless Artist.where(name: params["Artist Name"]).exists?
-      @song = Song.create(params)
-      @song.name = params["Name"]
-      @song.artist = @artist
-      @song.genre_ids = params[:genres]
-      @song.save
-      binding.pry
-      redirect("/songs/#{@song.slug}")
-
->>>>>>> 14441648761fe3bf35347bfd1d815e8926c0e548
   end
 
   patch '/songs/:slug' do
