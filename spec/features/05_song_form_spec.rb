@@ -104,7 +104,7 @@ describe "Song Forms" do
       end
 
       it "renders to the song show page" do
-        fill_in "Artist Name", with: "That singer"
+        fill_in "Artist_Name", with: "That singer"
         click_on "Save"
         expect(page.current_path).to eq("/songs/that-one-with-the-guitar")
       end
